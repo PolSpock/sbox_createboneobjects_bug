@@ -28,14 +28,14 @@ public sealed class OnStartBuggedTransform : Component
 			var modelPath = $"{filePath}{file}";
 			var model = Model.Load( modelPath );
 
-			bool startEnabled = true;
+			bool startEnabled = true; // turn false to get the bug
 
 			var piece = new GameObject
 			{
 				Name = model.ResourceName,
 				Parent = goSub,
 				WorldTransform = goSub.WorldTransform,
-				Enabled = startEnabled // TODO: waiting https://github.com/Facepunch/sbox-issues/issues/9532
+				Enabled = startEnabled
 			};
 
 			var modelRenderer = piece.Components.Create<SkinnedModelRenderer>();
